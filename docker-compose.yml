@@ -1,0 +1,21 @@
+version: "3.9"  # optional since v1.27.0
+services:
+  mongo1:
+    container_name: mongo1
+    image: mongo
+    ports: 
+        - "27017:27017"
+    command: [--replSet,rs0]
+    networks: 
+        - net
+  mongo2:
+    container_name: mongo2
+    image: mongo
+    ports: 
+        - "27018:27017"
+    command: [--replSet,rs0] 
+    networks: 
+        - net
+networks: 
+  net:
+    
