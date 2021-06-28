@@ -1,21 +1,39 @@
 version: "3.9"  # optional since v1.27.0
 services:
-  mongo1:
-    container_name: mongo1
+
+  BasedeDatos1:
+    container_name: BasedeDatos1
     image: mongo
     ports: 
         - "27017:27017"
-    command: [--replSet,rs0]
-    networks: 
+    command: [
+      #--replSet,rsLab
+      ]
+    networks:
         - net
-  mongo2:
-    container_name: mongo2
+
+  BasedeDatos2:
+    container_name: BasedeDatos2
     image: mongo
     ports: 
         - "27018:27017"
-    command: [--replSet,rs0] 
+    command: [
+      --replSet,rsLab
+      ]
     networks: 
         - net
-networks: 
+
+  BasedeDatos3:
+    container_name: BasedeDatos3
+    image: mongo
+    ports: 
+        - "27019:27017"
+    command: [
+      --replSet,rsLab
+      ] 
+    networks: 
+        - net
+networks:
   net:
+
     
